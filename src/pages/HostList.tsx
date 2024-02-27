@@ -17,8 +17,8 @@ const HostList = () => {
                         </div>
                         <div className="flex-1 min-h-0 overflow-auto">
                             <div className="grid gap-1 p-2">
-                                <SidebarComponent name="Host" />
-                                <SidebarComponent name="History" />
+                                <SidebarComponent name="Host" linkUrl="/" />
+                                <SidebarComponent name="History" linkUrl="/" />
                             </div>
                         </div>
                     </div>

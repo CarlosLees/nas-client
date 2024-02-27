@@ -1,25 +1,25 @@
-import { Button, Card, Input } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Button, Card, Input, InputRef } from 'antd';
+import { useRef } from 'react';
+import { invoke } from '@tauri-apps/api';
 
 const Index = () => {
-    // const nameRef = useRef<InputRef>(null);
-    // const passwordRef = useRef<InputRef>(null);
-    //
-    // const navigate = useNavigate();
-    //
-    // const joinRoom = async () => {
-    //     const username = nameRef.current!.input!.value;
-    //     const password = passwordRef.current!.input!.value;
-    //
-    //     navigate('/chat', {
-    //         state: {
-    //             username,
-    //             password,
-    //         },
-    //     });
-    // };
+    const ipRef = useRef<InputRef>(null);
+    const usernameRef = useRef<InputRef>(null);
+    const passwordRef = useRef<InputRef>(null);
 
-    const navigate = useNavigate();
+    const connect = async () => {
+        const ipAddress = ipRef.current!.input!.value;
+        const username = usernameRef.current!.input!.value;
+        const password = passwordRef.current!.input!.value;
+
+        if (ipAddress && username && password) {
+            await invoke('connect', {
+                ipAddress,
+                username,
+                password,
+            });
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-400 via-blue-500 to-red-500 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -31,19 +31,19 @@ const Index = () => {
                 <div className="space-y-4">
                     <div className="space-y-1">
                         <div>IP地址</div>
-                        <Input id="ip" placeholder="192.168.1.100" />
+                        <Input id="ip" placeholder="192.168.1.100" ref={ipRef} />
                     </div>
                     <div className="space-y-1">
                         <div>用户名</div>
-                        <Input id="username" />
+                        <Input id="username" type="text" ref={usernameRef} />
                     </div>
                     <div className="space-y-1">
                         <div>密码</div>
-                        <Input id="password" type="password" />
+                        <Input id="password" type="password" ref={passwordRef} />
                     </div>
                 </div>
                 <div className="text-center mt-5">
-                    <Button className="ml-auto" onClick={() => navigate('/host')}>
+                    <Button className="ml-auto" onClick={connect}>
                         连接
                     </Button>
                 </div>

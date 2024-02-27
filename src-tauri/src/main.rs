@@ -1,6 +1,6 @@
 mod command;
 
-use crate::command::cli::*;
+use crate::command::connect::*;
 
 #[tauri::command]
 fn greet(name: &str) -> String {
