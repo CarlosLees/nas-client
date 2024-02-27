@@ -1,4 +1,5 @@
 import { Button, Card, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
     // const nameRef = useRef<InputRef>(null);
@@ -17,6 +18,8 @@ const Index = () => {
     //         },
     //     });
     // };
+
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-400 via-blue-500 to-red-500 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -40,7 +43,9 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="text-center mt-5">
-                    <Button className="ml-auto">连接</Button>
+                    <Button className="ml-auto" onClick={() => navigate('/host')}>
+                        连接
+                    </Button>
                 </div>
             </Card>
         </div>
