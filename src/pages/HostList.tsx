@@ -19,6 +19,7 @@ const HostList = () => {
                             <div className="grid gap-1 p-2">
                                 <SidebarComponent name="Host" linkUrl="/" />
                                 <SidebarComponent name="History" linkUrl="/" />
+                                <SidebarComponent name="SystemInfomation" linkUrl="/system" />
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ interface SidebarProps {
 const SidebarComponent: FC<SidebarProps> = ({ name, linkUrl }) => {
     return (
         <>
-            <div className="border rounded-lg p-2 bg-gray-100 dark:bg-gray-800">
+            <div className="border rounded-lg p-2 bg-gray-100 dark:bg-gray-800 mt-2">
                 <Link
                     className="group flex items-center w-full h-9 rounded-md px-3 text-sm
                     font-medium transition-colors hover:bg-gray-100/50 hover:text-gray-900

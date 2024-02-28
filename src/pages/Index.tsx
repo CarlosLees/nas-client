@@ -24,6 +24,10 @@ const Index = () => {
         }
     };
 
+    const sysInfo = async () => {
+        await invoke('sys_info');
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-400 via-blue-500 to-red-500 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <Card className="w-1/2 max-w-1/2 mx-auto">
@@ -54,6 +58,7 @@ const Index = () => {
                     <Button className="ml-auto" onClick={connect}>
                         连接
                     </Button>
+                    <Button onClick={sysInfo}>sys_info</Button>
                 </div>
             </Card>
         </div>
