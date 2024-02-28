@@ -1578,6 +1578,7 @@ name = "nas-client"
 version = "0.0.0"
 dependencies = [
  "anyhow",
+ "bytes",
  "serde",
  "serde_json",
  "ssh2",

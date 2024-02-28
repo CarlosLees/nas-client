@@ -13,11 +13,14 @@ const Index = () => {
         const password = passwordRef.current!.input!.value;
 
         if (ipAddress && username && password) {
-            await invoke('connect', {
+            await invoke('connect_server', {
                 ipAddress,
                 username,
                 password,
             });
+
+            const res = await invoke('greet');
+            console.log(res);
         }
     };
 
@@ -31,15 +34,20 @@ const Index = () => {
                 <div className="space-y-4">
                     <div className="space-y-1">
                         <div>IP地址</div>
-                        <Input id="ip" placeholder="192.168.1.100" ref={ipRef} />
+                        <Input
+                            id="ip"
+                            placeholder="192.168.1.100"
+                            ref={ipRef}
+                            value="82.156.175.47:22"
+                        />
                     </div>
                     <div className="space-y-1">
                         <div>用户名</div>
-                        <Input id="username" type="text" ref={usernameRef} />
+                        <Input id="username" type="text" ref={usernameRef} value="root" />
                     </div>
                     <div className="space-y-1">
                         <div>密码</div>
-                        <Input id="password" type="password" ref={passwordRef} />
+                        <Input id="password" type="password" ref={passwordRef} value="lsw@0516" />
                     </div>
                 </div>
                 <div className="text-center mt-5">
